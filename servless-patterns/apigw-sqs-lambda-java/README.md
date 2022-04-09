@@ -31,6 +31,10 @@ The queue acts as a buffer to alleviate traffic spikes and ensure your workload 
     
    Once you have run `sam deploy --guided` mode once and saved arguments to a configuration file (samconfig.toml), you can use `sam deploy` in future to use these defaults.
 5. Note the outputs from the SAM deployment process. These contain the resource names and/or ARNs which are used for testing.
+6. Build the maven project using: `mvn package`
+7. Deploying jar to the lambda function using AWS CLI:
+  
+   `aws lambda update-function-code --function-name SQSLambdaFunction --zip-file fileb://SQSLambdaFunction-1.0-SNAPSHOT.jar`
 
 # How it works
 The API Gateway handles incoming requests, but instead of invoking the Lambda function directly, it stores them in an SQS queue which serves as a buffer. The Lambda functions (workers) can now process the requests in a batch manner (10 requests at a time).
