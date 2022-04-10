@@ -24,3 +24,9 @@ Specifically, it will tell the toolkit to use the mvn exec:java command as the e
 
 # Output
 ![alt text](https://github.com/mrparmsingh/aws/blob/main/servless-patterns/s3-lambda-s3-cdk/docs/output.png)
+
+# Cleanup
+Run the given command to delete the resources that were created. It might take some time for the CloudFormation stack to get deleted.
+
+`cdk destroy`
+
